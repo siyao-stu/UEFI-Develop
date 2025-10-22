@@ -1,0 +1,56 @@
+## @file
+#  UEFI Shell应用程序，用于读写块设备数据。
+#
+#  这个应用程序允许用户从块设备读取数据或向块设备写入随机数据。
+#  支持命令行参数指定设备、操作类型、LBA起始地址和长度。
+#
+#  Copyright (c) 2025, Your Name. All rights reserved.<BR>
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BlkRW
+  FILE_GUID                      = 91A4C5E0-EBF4-4C6B-9A1B-3C8D2EF76A9C
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+#
+# 该标志指定是否在PE镜像中生成HII资源段
+#
+  UEFI_HII_RESOURCE_SECTION      = FALSE
+
+#
+# 以下信息仅供参考，构建工具不需要
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+
+[Sources]
+  BlkRW.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  ShellPkg/ShellPkg.dec
+  CryptoPkg/CryptoPkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  ShellLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  BaseLib
+  DebugLib
+  UefiBootServicesTableLib
+  DevicePathLib
+  BaseCryptLib
+
+[Protocols]
+  gEfiBlockIoProtocolGuid
+  gEfiDevicePathProtocolGuid
