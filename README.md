@@ -1,2 +1,3 @@
 # UEFI-Develop
-UEFI开发相关的资料整理和翻译
+UEFI应用及驱动开发
+- BlkRW —— UEFI shell应用，可以在UEFI shell中执行块设备的读写及可选的校验功能
